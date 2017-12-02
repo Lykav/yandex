@@ -25,20 +25,20 @@ public class EventManagerImpl implements EventManager {
 
     @Override
     public long getRecentEventsCountPerMinute() {
-        return getEventCount(ChronoUnit.MINUTES);
+        return getEventsCount(ChronoUnit.MINUTES);
     }
 
     @Override
     public long getRecentEventsCountPerHour() {
-        return getEventCount(ChronoUnit.HOURS);
+        return getEventsCount(ChronoUnit.HOURS);
     }
 
     @Override
     public long getRecentEventsCountPerDay() {
-        return getEventCount(ChronoUnit.DAYS);
+        return getEventsCount(ChronoUnit.DAYS);
     }
 
-    private long getEventCount(ChronoUnit chronoUnit){
+    private long getEventsCount(ChronoUnit chronoUnit){
 
         Instant currentInstant = Instant.now();
         Instant instantWithOffset = currentInstant.minus(1, chronoUnit);
